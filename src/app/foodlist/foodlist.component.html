@@ -1,0 +1,73 @@
+<app-admin-panel></app-admin-panel>
+
+
+<app-choose-bucket></app-choose-bucket>
+
+<div class="my-container">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  
+<h5 class="text-center head" [ngStyle]="{'color':borderColor}"> Add items to the food list !</h5>
+<div class="row theForm container-fluid">
+  <div class="cell-4 offset-4">
+    <form class="shake" [ngClass]="{'animated': noDataButAddClicked}">
+      <div class="row mb-2">
+        <label class="cell-sm-2">Item*</label>
+        <div class="cell-sm-10" style="padding:0.4%;" [ngStyle]="{'background-color':borderColor,'font-family':fontName}">
+          <input type="text" [(ngModel)]="item" name="item" (keyup)="onKey($event)">
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label class="cell-sm-2"></label>
+        <div class="cell-sm-10">
+          <input type="radio" data-role="radio" data-caption="Veg" name="r1" (change)="foodType(true)" [checked]="vegCheck">
+          <input type="radio" data-role="radio" data-caption="Non-veg" (change)="foodType(false)" name="r1" [checked]="nonCheck">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<br>
+<div class="row animated bounce">
+  <div class="cell-4 offset-5">
+
+    <div class="row mb-2">
+      <label class="cell-sm-2"></label>
+      <div class="cell-sm-10">
+        <button class="image-button primary  icon-right" (click)="add()">
+                    <span class="mif-plus icon ani-shake"></span>
+                    <span class="caption">Add</span>
+                </button>
+
+
+
+        <button class="image-button icon-right success" (click)="submit()">
+                    <span class="mif-space-shuttle icon ani-float"></span>
+                    <span class="caption">Submit</span>
+                </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="grid .dataShow" style=" width:37%;
+  margin-right: auto;
+  margin-left: auto;margin-top:2%;font-size:1.2em;">
+  <div *ngFor="let d of dataArray;let i = index">
+    <div class="row animate shake" style="margin-bottom:1%;">
+
+
+      <div class="cell-2">{{i+1}}</div>
+      <div class="cell-8">{{d.item}}</div>
+      <div class="cell-2"><span class="mif-cross icon" (click)="deleteItem(i)" style="cursor:pointer;"></span></div>
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+

@@ -1,0 +1,30 @@
+form.animated {
+    
+    animation-iteration-count: 2;
+  }
+  .theForm
+  {
+    font-family: 'Electrolize', sans-serif;
+   
+  }
+  .theForm:hover
+  {
+    cursor: pointer;
+ border-radius:10%;
+    font-size: 1.4em;
+    background: linear-gradient(to right, #6190e8, #a7bfe8);
+  }
+  #myModal img
+  {
+    text-align: center;
+    width:100px;
+    
+  }
+  #myModal img:hover
+    {
+      border: 2px solid burlywood;
+      border-radius: 3%;
+    }
+
+  
+  

@@ -1,0 +1,34 @@
+<div class="row  container-fluid bucketList">
+
+    <div class="cell-4 text-center ">
+<div class="h3"> Choose Bucket !</div>
+</div>
+<div class="cell-8 text-center bucketListCardBody" *ngIf="dataFromBuckets">
+
+  <div  *ngFor="let d of dataFromBuckets">
+      <div class="row h6 ">
+          <div class="cell-4 text-center "> <input type="radio" name="gender" value="{{d.name}}"  (change)="radioChanged($event)">   {{d.note}} </div>
+           <div class="cell-2 text-center "> <span class="mif-calendar"></span>  {{d.date.substring(0,10)}} </div>
+           <div class="cell-4 text-center ">By:  {{d.user}} <span> <img src="../assets/avtar/0.png" style="width:40px;" alt="user avtar"/> </span></div>
+           <div class="cell-2 text-center "> Emp Id: {{d.id}} </div>
+       </div>
+  </div>
+    
+</div>
+
+
+
+<div class="cell-8 text-center bucketListCardBody" *ngIf="bucketsByUser">
+
+        <div  *ngFor="let d of bucketsByUser">
+            <div class="row h6 ">
+                <div class="cell-4 text-center "> <input type="radio" name="gender" value="{{d.name}}"  (change)="radioChanged($event)">   {{d.user}} </div>
+                 <div class="cell-2 text-center "> <span class="mif-calendar"></span>  {{d.date.substring(0,10)}} </div>
+                 <div class="cell-4 text-center ">By:  {{d.user}} <span> <img src="../assets/avtar/0.png" style="width:40px;" alt="user avtar"/> </span></div>
+                 <div class="cell-2 text-center "> Emp Id: {{d.id}} </div>
+             </div>
+        </div>
+          
+      </div>
+
+</div>

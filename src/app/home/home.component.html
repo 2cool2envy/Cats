@@ -1,0 +1,167 @@
+<div class="my-container">
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="row container-fluid " style="padding-top:5%;">
+
+
+  
+    <div class="cell-4 offset-4"><div>
+
+
+        <form>
+             <div class="text-center">
+
+             </div>   
+          <div class="row mb-2">
+              <label class="cell-sm-4">
+
+                 Emp Id
+              </label>
+              <div class="cell-sm-10">
+                  <input type="number" [(ngModel)]="id" name="id">
+              </div>
+          </div>
+          <div class="row mb-2">
+              <label class="cell-sm-4">Password</label>
+              <div class="cell-sm-10">
+                  <input type="password" [(ngModel)]="password" name="password">
+              </div>
+          </div>
+
+          <div class="row mb-2">
+              <label class="cell-sm-4"></label>
+              <div class="cell-sm-10">
+                  <button type="submit" (click)="login()" class="button primary drop-shadow" style="width:100%;">Sign in</button>
+
+              </div>
+          </div>
+        
+          
+          
+        </form>
+    
+      </div></div>
+    </div>
+    <div class="row container-fluid animated swing" style="padding-top:3%;">
+
+    <div class="cell-4  text-right">
+
+        <div class="calendar-wide-sm" data-role="calendar" data-buttons="false"></div>
+    
+    </div>
+
+
+    <div class="cell-4 offset-4 text-right">
+
+
+        <div class="grid">
+            <div class="row">
+                <div class="cell-6">
+                        <a [routerLink]="['../dashboard']"> 
+
+<div data-role="tile" data-effect="hover-slide-left">
+            <div class="slide-front"> <span class="mif-spoon-fork icon"></span>
+                <span class="branding-bar text-center">Add request</span></div>
+            <div class="slide-back text-center"> Add your request to the list
+                    <span class="mif-spoon-fork icon"></span>
+                 
+            </div>
+        </div>
+
+            </a>
+            </div>
+                <div class="cell-6">
+                        <a [routerLink]="['../list',{'type':'all'}]">   <div data-role="tile">
+                        <span class="mif-eye icon"></span>
+                         <span class="branding-bar text-center">See list</span>
+                       
+                    </div> </a><div>
+                </div></div>
+            </div>
+        </div>
+
+        <div class="grid">
+                <div class="row">
+                <div class="cell-6">
+                        <div data-toggle="modal" data-target="#myModal">
+                           
+                        <div data-role="tile">
+                            <span class="mif-user-plus icon"></span>
+                            <span class="branding-bar text-center">Sign up</span>
+                        </div>
+                           
+                    </div>
+                    </div>
+
+           
+          
+          
+                            <div class="cell-6">
+                                    <div data-role="tile">
+                                        <span class="mif-cross icon"></span>
+                                        <span class="branding-bar text-center">Closing in</span>
+                                        <div data-role="countdown" data-minutes="1"></div>
+                                    
+                                </div></div>
+                            </div>
+                  </div>
+                </div>
+
+    </div> 
+
+
+    
+    
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Sign up</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                          <label for="email">Emp ID</label>
+                          <input type="email" class="form-control" id="empId" [(ngModel)]="signUpEmpId" required  name="idid">
+                        </div>
+                        <div class="form-group">
+                          <label for="pwd">Password:</label>
+                          <input type="password" class="form-control" id="pwd"   [(ngModel)]="signUpPassword" required name="id">
+                        </div>
+                        <div class="form-group">
+                                <label for="pwd">Name:</label>
+                                <input type="text" class="form-control" id="name"   [(ngModel)]="signUpName" required name="id">
+                              </div>
+                        <button type="submit" class="btn btn-primary btn-block" (click)="signUp()" data-dismiss="modal"> <span class="mif-user-plus mif-3x"></span></button>
+                      </form>
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer" *ngIf="errorOnSignUp">
+             Add the details in all boxes.
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      
+          
+        </div>
+
+
+
+
+
+      
+      <ngx-alerts></ngx-alerts>

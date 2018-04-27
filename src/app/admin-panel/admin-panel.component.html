@@ -1,0 +1,97 @@
+<div class="app-bar-expand-md" data-role="appbar">
+
+  <ul class="app-bar-menu">
+    <li><a (click)="showBucket()">Create Bucket   <span class="mif-earth2 icon mif-lg"></span></a></li>
+
+    <li><a [routerLink]="['../list']"> See all list <span class="mif-eye icon mif-lg"></span></a></li>
+    <li><a [routerLink]="['../list',{'type':'my'}]"> See my list <span class="mif-eye icon mif-lg"></span></a></li>
+    <li><a [routerLink]="['../foodlist']"> Create food list <span class="mif-plus icon mif-lg"></span></a></li>
+
+    <li class="text-right"><a [routerLink]=" [ '../foodlist'] ">   Espanol <span class="mif-language icon mif-lg "></span></a></li>
+    <li class="text-right" data-toggle="modal" data-target="#myModal"><a [routerLink]=" [ '../foodlist'] ">   {{userName}} <span class=""> <img src="{{avatar}}" alt="avtar"/> </span> {{userId}} </a></li>
+    <li class="text-right"><a [routerLink]=" [ '../home'] ">   Sign out <span class="mif-paper-plane icon mif-lg "></span> </a></li>
+
+  </ul>
+
+</div>
+
+
+<div class="my-container">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }" fullScreenBackdrop:true></ngx-loading>
+  
+<div class="createBucket container-fluid " style="margin-bottom:10%; " *ngIf="showBucketVar ">
+
+  <div class="row container-fluid ">
+    <div class="cell-6 ">
+      <div class="row animated bounce " style="margin-bottom:10%; ">
+        <div class="cell-4 offset-2 ">
+          <h4> Date</h4>
+        </div>
+
+        <div class="cell-6 remark primary ">
+
+           {{date}}
+        </div>
+      </div>
+    </div>
+
+    <div class="cell-6 ">
+      <div class="row animated bounce " style="margin-bottom:10%; ">
+        <div class="cell-4 offset-2 ">
+          <h4> Closing time*</h4>
+        </div>
+
+        <div class="cell-6 bg-cyan ">
+            <input type="time" value="12:45" #time/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row container-fluid ">
+      <div class="cell-6 ">
+        <div class="row animated bounce " style="margin-bottom:10%; ">
+            <div class="cell-4 offset-2 ">
+                <h4>Owner</h4>
+              </div>
+      
+              <div class="cell-6 bg-cyan ">
+                  <input type="text" disabled name='owner' [(ngModel)]='userName'>
+              </div>
+
+        </div>
+      </div>
+  
+      <div class="cell-6 ">
+        <div class="row animated bounce " style="margin-bottom:10%; ">
+          <div class="cell-4 offset-2 ">
+            <h4>Note*</h4>
+          </div>
+  
+          <div class="cell-6 bg-cyan ">
+              <input type="text" data-role="input" #note>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <div class="row animated tada " style="padding-top:4%; ">
+    <div class="cell-4 offset-4 ">
+
+
+      <button class="button info drop-shadow outline large " style="width:100%; " (click)="createBucket(time,note) ">Start <span class="mif-paper-plane ani-float "></span></button>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+
+     
+<ngx-alerts></ngx-alerts>

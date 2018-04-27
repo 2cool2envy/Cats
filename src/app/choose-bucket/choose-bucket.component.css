@@ -1,0 +1,10 @@
+.bucketList
+{
+  margin-bottom: 1%;
+  padding: 0.4%;
+}
+.bucketListCardBody :hover
+{
+  /* border: 1px solid black; */
+  cursor: pointer;
+}

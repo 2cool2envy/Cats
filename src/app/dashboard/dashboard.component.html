@@ -1,0 +1,156 @@
+<app-admin-panel>
+</app-admin-panel>
+
+
+<app-choose-bucket>
+  
+</app-choose-bucket>
+
+
+
+<div class="showAdded">
+<div *ngFor="let d of dataArray;let i = index">
+
+  <div class="grid" style="width:70%;margin-right:auto;margin-left:auto;margin-top:4%;margin-bottom:3%;">
+    <div class="row  h5 animated jello">
+      <div class="cell-3">{{i+1}} </div>
+      <div class="cell-4">{{d.item}}</div>
+      <div class="cell-3">{{d.q}}</div>
+      <div class="cell-2"><span class="mif-cross icon" (click)="deleteItem(i)" style="cursor:pointer;"></span></div>
+
+    </div>
+
+
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="row  container-fluid">
+
+  <div class="cell-4 offset-1  text-center ">
+    <h4 class="text-center animated fadeInDownBig" *ngIf="foodList "> <span class="mif-spoon-fork"></span> Food list</h4>
+    <div *ngFor="let f of foodList;let i = index" class="theForm" style="margin-bottom:2px;">
+
+      <div *ngIf="f.type=='veg'" class="animated rotateIn">
+        <div (click)="addItemFromList(f.item)">{{f.item}} <span class=""><img width="5%" src="https://png.icons8.com/color/160/vegetarian-food-symbol.png"></span> </div>
+
+      </div>
+      <div *ngIf="f.type=='non'" class="animated zoomInDown">
+        <div (click)="addItemFromList(f.item)">{{f.item}} <span class=""><img width="4%" src="http://myhotparcel.com/upload/1493894211-nonvegicon.png"></span> </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cell-5 offset-2">
+    <form>
+      <div class="row mb-2">
+        <label class="cell-sm-2">Item*</label>
+        <div class="cell-sm-10">
+          <input type="text" [(ngModel)]="item" name="item">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="cell-sm-2">Quantity*</label>
+        <div class="cell-sm-10">
+          <input type="number" [(ngModel)]="quan" name="quan">
+        </div>
+      </div>
+
+
+
+
+    </form>
+  </div>
+</div>
+<div class="row animated bounce">
+  <div class="cell-4 offset-1">
+  </div>
+  <div class="cell-5 offset-2">
+
+    <div class="row mb-2">
+      <label class="cell-sm-2"></label>
+      <div class="cell-sm-10">
+        <button class="image-button primary  icon-right" (click)="add()">
+                    <span class="mif-plus icon ani-shake"></span>
+                    <span class="caption">Add</span>
+                </button>
+
+
+
+        <button class="image-button icon-right success" (click)="submit()">
+                    <span class="mif-space-shuttle icon ani-float"></span>
+                    <span class="caption">Submit</span>
+                </button>
+
+                <button class="image-button icon-right success" (click)="getFoodList()">
+                  <span class="mif-space-shuttle icon ani-float"></span>
+                  <span class="caption">Get foo list</span>
+              </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Open modal
+</button>
+
+ <!-- The Modal -->
+ <div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 23%;">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Choose Avtar</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+          <div class="row">
+              <div *ngFor="let img of avtarArray;let i = index">
+              <div class="col-6" style="margin-bottom:1%;" *ngIf="img!==null||img!==undefined"><img (click)="changeAvtar(i)" data-dismiss="modal" src="{{img}}" alt="image"></div>
+            </div>   
+ </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ngx-alerts></ngx-alerts>

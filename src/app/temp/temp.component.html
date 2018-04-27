@@ -1,0 +1,89 @@
+
+<div class="container">
+  <h2>Quick Links to order quickly ! </h2>
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary btn-block animated bounce" data-toggle="modal" data-target="#myModal">
+    <span class="mif-spoon-fork ani-shake"></span> Order Food
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal" *ngIf="showModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add your order</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="email">Food *</label>
+                <input type="email" class="form-control" id="food" required #food>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Quantity*</label>
+                <input type="number" class="form-control" id="q" required #q>
+              </div>
+              <div class="form-group">
+                  <label for="email">Your name*</label>
+                  <input type="username" class="form-control" id="username" required #user>
+                </div>
+              
+              <button type="submit" class="btn btn-primary" (click)="submit(food,q,user)">Submit</button>
+            </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+<div class="reqList">
+<div *ngIf="requestList">
+    <div class="row">
+        <div class="cell-12 text-center h2"><div>Total : {{requestList.length}}</div></div>
+      </div>
+    </div>
+    <div class="row logos animated bounceInRight">
+      <div class="cell-3 "><span class="mif-spoon-fork ani-shake"></span></div>
+      <div class="cell-3"><div>*</div></div>
+      <div class="cell-3"><div><span class="mif-user ani-shake"></span></div></div>
+      <div class="cell-3"><div><span class="mif-calendar ani-shake"></span></div></div>
+    
+    </div>
+
+    <div class="row" style="text-align:center;" *ngIf="noData">
+
+      <img src="./assets/images/basic.gif">
+    </div>
+
+<div *ngFor="let d of requestList;let i = index">
+    <div class="row animated bounceInLeft reqListData" >
+    <div class="cell-3" *ngIf="!isVeg(d.food)"><div> <img src="https://png.icons8.com/color/160/vegetarian-food-symbol.png"> {{d.food}}   </div> </div>
+    <div class="cell-3" *ngIf="isVeg(d.food)"><div><img src="https://png.icons8.com/color/1600/non-vegetarian-food-symbol.png"> {{d.food}}   </div> </div>
+
+
+  <div class="cell-3"><div>{{d.q}}</div></div>
+  <div class="cell-3"><div>{{d.user}}</div></div>
+  <div class="cell-3"><div>{{d.date}}</div></div>
+
+</div>
+</div>
+
+
+</div>
+<ngx-alerts></ngx-alerts>

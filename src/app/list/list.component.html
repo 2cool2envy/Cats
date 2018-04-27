@@ -1,0 +1,35 @@
+
+
+<h5 class="text-center" style="margin-bottom:4%;">
+  Choose Bucket to see the list !!
+</h5>
+<app-choose-bucket (onBucketPicked)="getBucketName($event)"></app-choose-bucket>
+
+
+
+<div class="row  showList container-fluid animated bounceInLeft " *ngIf="userData" style="margin-top:4%;" >
+
+    <div class="cell-4 text-center ">
+<div class="h3"> Your list</div>
+</div>
+<div class="cell-8 text-center bucketListCardBody" style="font-family: 'Gaegu', cursive;">
+   
+    <div class="row h2 ">
+        <div class="cell-4 text-center ">   </div>
+         <div class="cell-4 text-center ">  <span class="mif-spoon-fork"></span>   </div>
+         <div class="cell-2 text-center "> <span class="mif-dialpad"></span> </div> 
+     </div>
+  <div  *ngFor="let d of userData;let i =index" style="padding:0.6%;">
+      <div class="row h2 ">
+          <div class="cell-4 text-center ">  {{i+1}} </div>
+           <div class="cell-4 text-center ">  {{d.data.order[i].item}}   </div>
+           <div class="cell-2 text-center "> {{d.data.order[i].q}} </div> 
+       </div>
+  </div>
+    
+</div>
+</div>
+
+
+
+<ngx-alerts></ngx-alerts>
